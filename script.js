@@ -1,8 +1,5 @@
-
 // Variables
-
 // Define a set of questions
-
 var questions = [
     {
         q: 'Inside which HTML element do we put the JavaScript?',
@@ -17,9 +14,9 @@ var questions = [
         q: 'What is the correct JavaScript syntax to change the content of the HTML element below?',
         a: 'document.getElementById("demo").innerHTML = "Hello World!";',
         choices: [
-            { choice: 'document.getElementById("demo").innerHTML = "Hello World!";' },
-            { choice: 'document.getElementByName("p").innerHTML = "Hello World!";' },
-            { choice: 'document.getElement("p").innerHTML = "Hello World!";' },
+            { choice: 'document.getElementById\n("demo").innerHTML = "Hello World!";' },
+            { choice: 'document.getElementByName\n("p").innerHTML = "Hello World!";' },
+            { choice: 'document.getElement("p")\n.innerHTML = "Hello World!";' },
             { choice: '#demo.innerHTML = "Hello World!";' }
         ]
     },
@@ -37,9 +34,9 @@ var questions = [
         q: 'How to write an IF statement in JavaScript?',
         a: 'if (i == 5)',
         choices: [
-            { choice: 'if (i == 5)' }, 
-            { choice: 'if i = 5' }, 
-            { choice: 'if i = 5 then' }, 
+            { choice: 'if (i == 5)' },
+            { choice: 'if i = 5' },
+            { choice: 'if i = 5 then' },
             { choice: 'if i == 5 then' }
         ]
     },
@@ -47,9 +44,9 @@ var questions = [
         q: 'How to write an IF statement for executing some code if "i" is NOT equal to 5?',
         a: 'if (i != 5)',
         choices: [
-            { choice: 'if (i <> 5)' }, 
-            { choice: 'if i =! 5 then' }, 
-            { choice: 'if (i != 5)' }, 
+            { choice: 'if (i <> 5)' },
+            { choice: 'if i =! 5 then' },
+            { choice: 'if (i != 5)' },
             { choice: 'if i <> 5' }
         ]
     },
@@ -57,9 +54,9 @@ var questions = [
         q: 'How does a FOR loop start?',
         a: 'for (i = 0; i <= 5; i++)',
         choices: [
-            { choice: 'for (i <= 5; i++)' }, 
-            { choice: 'for (i = 0; i <= 5; i++)' }, 
-            { choice: 'for (i = 0; i <= 5)' }, 
+            { choice: 'for (i <= 5; i++)' },
+            { choice: 'for (i = 0; i <= 5; i++)' },
+            { choice: 'for (i = 0; i <= 5)' },
             { choice: 'for i = 1 to 5' }
         ]
     },
@@ -67,9 +64,9 @@ var questions = [
         q: 'What is the correct way to write a JavaScript array?',
         a: 'var colors = ["red", "green", "blue"]',
         choices: [
-            { choice: 'var colors = 1 = ("red"), 2 = ("green"), 3 = ("blue")' }, 
-            { choice: 'var colors = (1:"red", 2:"green", 3:"blue")' }, 
-            { choice: 'var colors = ["red", "green", "blue"]' }, 
+            { choice: 'var colors = 1 = ("red"), 2 = ("green"), 3 = ("blue")' },
+            { choice: 'var colors = (1:"red", 2:"green", 3:"blue")' },
+            { choice: 'var colors = ["red", "green", "blue"]' },
             { choice: 'var colors = "red", "green", "blue"' }
         ]
     },
@@ -77,9 +74,9 @@ var questions = [
         q: 'How do you round the number 7.25, to the nearest integer?',
         a: 'Math.round(7.25)',
         choices: [
-            { choice: 'round(7.25)' }, 
-            { choice: 'rnd(7.25)' }, 
-            { choice: 'Math.rnd(7.25)' }, 
+            { choice: 'round(7.25)' },
+            { choice: 'rnd(7.25)' },
+            { choice: 'Math.rnd(7.25)' },
             { choice: 'Math.round(7.25)' }
         ]
     },
@@ -87,9 +84,9 @@ var questions = [
         q: 'How do you find the number with the highest value of x and y?',
         a: 'Math.max(x, y)',
         choices: [
-            { choice: 'top(x, y)' }, 
-            { choice: 'Math.ceil(x, y)' }, 
-            { choice: 'ceil(x, y)' }, 
+            { choice: 'top(x, y)' },
+            { choice: 'Math.ceil(x, y)' },
+            { choice: 'ceil(x, y)' },
             { choice: 'Math.max(x, y)' }
         ]
     },
@@ -97,9 +94,9 @@ var questions = [
         q: 'Which event occurs when the user clicks on an HTML element?',
         a: 'onclick',
         choices: [
-            { choice: 'onmouseclick' }, 
-            { choice: 'onclick' }, 
-            { choice: 'onmouseover' }, 
+            { choice: 'onmouseclick' },
+            { choice: 'onclick' },
+            { choice: 'onmouseover' },
             { choice: 'onchange' }
         ]
     },
@@ -107,16 +104,14 @@ var questions = [
         q: 'Which operator is used to assign a value to a variable?',
         a: '=',
         choices: [
-            { choice: '*' }, 
-            { choice: '=' }, 
-            { choice: '-' }, 
+            { choice: '*' },
+            { choice: '=' },
+            { choice: '-' },
             { choice: 'x' }
         ]
     },
 ];
-
 // Grab reference to element
-
 
 
 // header elements - view high scores and timer
@@ -148,13 +143,11 @@ var wrongAnswerEl = document.getElementById("wrong");
 
 // Buttons
 var buttonStartGameEl = document.getElementById("start-game");
-var buttonSubmitScoreEl = document.getElementById("#submit-score");
+// var buttonSubmitScoreEl = document.getElementById("submit-score");
 var buttonGoBackEl = document.getElementById("go-back");
 var buttonClearHighScoreEl = document.getElementById("clear-high-scores");
 
-
 // High Score Array
-
 var highScores = [];
 // assign array details for questions
 var shuffledQuestions;
@@ -162,21 +155,61 @@ var questionIndex = 0;
 var score = 0;
 var timeLeft;
 var gameOver;
+
 // sets timer to 0 before the start of quiz.
 timerEl.innerHTML = 0;
+
 // Functions
+//to remove all containers from display
+var cleanScreen = function () {
+    starterContainerEl.className = 'hide';
+    questionContainerEl.className = 'hide';
+    endContainerEl.className = 'hide';
+    highScoreContainerEl.className = 'hide';
+    correctAnswerEl.className = 'hide';
+    wrongAnswerEl.className = 'hide';
+};
+
 // choose a random index from an array.length/it needs an array as an argument
 var randomIndexOfArray = function (array) {
     return Math.floor(Math.random() * array.length);
 };
+
+// every second, check if game-over is true, or if there is time left. Start time at questions.length * 6 6 second on a question.
+var setTime = function () {
+    timeLeft = questions.length * 6; // every question has 6 sec to chose the answer.
+   
+   
+    var timerCheck = setInterval(function () {
+        timerEl.textContent = timeLeft;
+        timeLeft--;
+        if (gameOver) {
+            clearInterval(timerCheck);
+        }
+        if (timeLeft < 0) {
+            showScore();
+            console.log("i am from set time ()");
+            timerEl.textContent = 0;
+            clearInterval(timerCheck);
+        }
+    }, 1000);
+};
+var restartGame = function () {
+    cleanScreen();
+    starterContainerEl.classList.remove('hide');
+    scoreBannerEl.removeChild(scoreBannerEl.lastChild);
+    questionIndex = 0;
+    gameOver = "";
+    timerEl.textContent = 0;
+    score = 0;
+    questionContainerEl.removeChild
+};
 //   WHEN I click the start button - I am presented with a question
 var startGame = function () {
-    timeLeft = questions.length * 6; // every question has 6 sec to chose the answer.
-    starterContainerEl.classList.add("hide"); //hide content
+    cleanScreen();
     questionContainerEl.classList.remove("hide"); //show content
-    questionEl.textContent = questions[0].q; // display question
- // bring questions and place them as buttons in question/answer container
-    displayAnswers();
+    setTime();
+    setQuestion();
 };
 var answerCheck = function (event) {
     var selectedAnswer = event.target.textContent;
@@ -187,20 +220,18 @@ var answerCheck = function (event) {
     else {      // or if answer wrong do next
         answerWrong();
         score -= 5;      // remove 5 points from Griffindor
-        timeLeft -= 3;  // remove 3 secs
+        timeLeft -= 10;  // remove secs
     }
-
     // go to the next question, if we have more questions in array questions
     if (questionIndex + 1 < questions.length) { //don't run if just question cause error in start game with index. TRY WHEN GAME OVER SET
         questionIndex++;
         setQuestion();
-    
     }
     else {
         gameOver = true;
         showScore();
+        console.log("im from answerCheck()");
     }
-
 };
 
 var setQuestion = function () {
@@ -208,99 +239,16 @@ var setQuestion = function () {
     displayAnswers(questions[questionIndex]);
 };
 
-
-
-
-
-// to display score;
-var showScore = function () {
-    questionContainerEl.classList.add("hide");
-    highScoreContainerEl.classList.remove("hide");
-
-    var scoreDisplay = document.createElement('p');
-    scoreDisplay.textContent = "Your final score is: " + score + "!";
-    highScoreContainerEl.appendChild(scoreDisplay);
-
-};
-
-// create high score values
-var createHighScore = function (event) {
-    event.preventDefault()
-    var initials = document.getElementById("initials").value;
-    if (!initial) {
-        alert("Enter your initials!");
-        return;
-    }
-    initialsFormEl.reset();
-
-    var initialScore = {
-        initials: initials,
-        score: score
-    }
-
-    // return sorted array
-    var sortedArray = function (a, b) {
-        return (b.score - a.score);
-    }
-    // push and sort scores
-    highScores.push(initialScore);
-    highScores.sort(function (a, b) {
-        return b.score - a.score
-    });
-
-    // clear visible list to resort
-    while (highScoreListEl.firstChild) {
-        highScoreListEl.removeChild(highScoreListEl.firstChild);
-    }
-
-    // create elements in order of high scores
-    for (var i = 0; i < highScores.length; i++) {
-        var highScoreEl = document.createElement('li');
-        highScoreEl.className = 'high-score';
-        highScoreEl.textContent = highScores[i].initials + " - " + highScores[i].score;
-        highScoreListEl.appendChild(highScoreEl);
-    }
-
-    saveHighScore();
-    displayHighScores(); // need a function
-
-};
-
-//save high score()
-var saveHighScore = function () {
-    localStorage.setItem("highScores", JSON.stringify(highScores));
-};
-
-
-// load values/ called on page load
-var loadHighScore = function () {
-    var loadedHighScores = localStorage.getItem(JSON.parse("highScores"));
-    if (!loadHighScore) {
-        return false;
-    }
-
-    loadHighScore = JSON.parse(loadHighScore);
-    loadHighScore.sort(function (a, b) {
-        return b.score - a.score;
-    });
-
-    for (var i = 0; i<loadHighScore.length;i++) {
-        var hightScoreEl = document.createElement("li");
-        hightScoreEl.className = "high-score";
-        highScoreEl.textContent = loadedHighScores[i].initials + " - " + loadedHighScores[i].score;
-        highScoreListEl.appendChild(highScoreEl);
-
-        highScores.push(loadedHighScores[i]);
-    }
-};
-
 // while we still have some answers in answers container remove first and go for next one which become first if not it stops.
-var resetAnswers = () => {
+var resetAnswers = function () {
     while (answerButtonsEl.firstChild) {
         answerButtonsEl.removeChild(answerButtonsEl.firstChild);
     }
 };
+
+//display question information (including answer buttons)
 var displayAnswers = function () {
+    questionEl.textContent = questions[questionIndex].q; // display question
     for (var i = 0; i < questions[questionIndex].choices.length; i++) { // to display answers:
         var answerButton = document.createElement("button");
         answerButton.classList.add('btn');
@@ -312,26 +260,89 @@ var displayAnswers = function () {
     }
     console.log(questions[questionIndex].a); //log right answer
 };
+
+// to display score;
+var showScore = function () {
+    cleanScreen();
+    endContainerEl.classList.remove("hide");
+    var scoreDisplay = document.createElement('p');
+    scoreDisplay.textContent = "Your final score is: " + score + "!";
+    scoreBannerEl.appendChild(scoreDisplay)
+
+};
+
+// return sorted array
+var sortedArray = function (a, b) {
+    return (b.score - a.score);
+};
+// create high score values
+var createHighScore = function (event) {
+    event.preventDefault();
+    var initials = document.getElementById("initials").value;
+    if (!initials) {
+        alert("Enter your initials!");
+        return;
+    }
+    // clean the form
+    initialsFormEl.reset();
+    //creat an object with initials and score keys and values
+    var initialScore = {
+        initials: initials,
+        score: score
+    }
+    // push and sort scores
+    highScores.push(initialScore);
+    highScores.sort(sortedArray);
+    
+
+    // clear visible list to resort
+    while (highScoreListEl.firstChild) {
+        highScoreListEl.removeChild(highScoreListEl.firstChild);
+    }
+    
+
+     // create elements in order of high scores
+     for (var i = 0; i < highScores.length; i++) {
+        var highScoreEl = document.createElement('li');
+        highScoreEl.className = 'high-score';
+        highScoreEl.textContent = highScores[i].initials + " : " + highScores[i].score;
+        highScoreListEl.appendChild(highScoreEl);
+        console.log(highScoreEl);
+    }
+    
+
+    saveHighScore();
+    // debugger;
+    displayHighScores(); // need a function
+    
+
+};
+
+var displayHighScores = function () {
+    cleanScreen();
+    highScoreContainerEl.classList.remove("hide");  // highsc already has ol with initials and score
+    gameOver = true;
+};
+var clearHighScores = function () {
+    highScores = [];
+    while (highScoreListEl.firstChild) {
+        highScoreListEl.removeChild(highScoreListEl.firstChild);
+    }
+    localStorage.clear(highScores);
+}
 // show a bar with correct and hide wrong if any.
 var answerCorrect = () => {
-    if (correctAnswerEl.className = "hide") { // if hide already in class properties wont change nothing. it wont be class="hide hide" because of = sign. it removes old assignments and rewrites it to be that provided.
+    if (correctAnswerEl.className === "hide") { // if hide already in class properties wont change anything. it wont be class="hide hide" because of = sign. it removes old assignments and rewrites it to be that provided.
         correctAnswerEl.classList.remove("hide");
         wrongAnswerEl.classList.add("hide");
     }
-
 };
-
 var answerWrong = () => {
-    if (wrongAnswerEl.className = "hide") {
+    if (wrongAnswerEl.className === "hide") {
         wrongAnswerEl.classList.remove("hide");
         correctAnswerEl.classList.add("hide");
     }
-
 };
-
-
-
-
 // User Story
 // AS A coding boot camp student
 // I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
@@ -348,18 +359,7 @@ var answerWrong = () => {
 // THEN the game is over
 // WHEN the game is over
 // THEN I can save my initials and score
-// // When I click the start button, timer starts
-// var startGame = function () {
-//     // add classes to show/hide start and quiz screen
-//     starterContainerEl.classList.add('hide'); // we might don't need to have show
-//     // starterContainerEl.classList.remove('show');
-//     questionContainerEl.classList.remove('hide');
-//     // questionContainerEl.classList.add('show');
-//     // shuffle the question so they will show in random order
-//     arrayShuffledQuestions = questions.sort(function () { Math.random() - 0.5; });
-//     setTime();
-//     setQuestion();
-// }
+// When I click the start button, timer starts
 // need to setTime function and setQuestion()
 // Display questions information  including answer buttons
 // need to add answerCheck() function
@@ -375,15 +375,37 @@ var answerWrong = () => {
 // Enter initial and store high score in local storage
 // // Stop function if initial is blank
 // Store scores into local storage
-// Stringify array in order to store in local
 // Show current high scores
 // Function to show high scores
 // // check if there is any local storage
+// SCORES
+//save high score()
+// Stringify array in order to store in local
+var saveHighScore = function () {
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+};
+// load values/ called on page load
+var loadHighScore = function () {
+    var loadedHighScores = localStorage.getItem("highScores");
+    if (!loadedHighScores) {
+        return false;
+    }
+    loadedHighScores = JSON.parse(loadedHighScores);
+    loadedHighScores.sort(sortedArray);
+    for (var i = 0; i < loadedHighScores.length; i++) {
+        var highScoreEl = document.createElement("li");
+        highScoreEl.className = "high-score";
+        highScoreEl.textContent = loadedHighScores[i].initials + " : " + loadedHighScores[i].score;
+        highScoreListEl.appendChild(highScoreEl);
+        highScores.push(loadedHighScores[i]);
+    }
+};
+// send all score to localStorage;
+loadHighScore();
 // Add event Listeners
-
-
+viewHighScoresEl.addEventListener("click", displayHighScores);
 buttonStartGameEl.addEventListener("click", startGame);
-initialsFormEl.addEventListener("click", createHighScore)
-buttonSubmitScoreEl.addEventListener("click", () => { console.log("Did you press submit button?") });
-buttonGoBackEl.addEventListener("click", () => { console.log("Did you press Go Back button?") });
-buttonClearHighScoreEl.addEventListener("click", () => { console.log("Did you press Clear high Scores?") })
+initialsFormEl.addEventListener("submit", createHighScore)
+// buttonSubmitScoreEl.addEventListener("click", () => { console.log("Did you press submit button?") });
+buttonGoBackEl.addEventListener("click", restartGame);
+buttonClearHighScoreEl.addEventListener("click", clearHighScores);
