@@ -1,29 +1,215 @@
 * {
     box-sizing: border-box;
 }
-header {
-    display: flex;
-    justify-content: space-between;
-}
-button {
-background-color: blueviolet;
-}
-button:hover{
-    background-color: orange;
-}
-.box {
-    padding         : 10px;
-    margin          : 20px;
-    border          : 5px solid rgb(0, 0, 0);
-    font-size: 32px;
-    background-color: blanchedalmond;
-    display: flex;
-    justify-content: center;
-    width: 390px;
+
+:root {
+    --primary  : #0a0808c5;
+    --secondary: #8207a1;
+    --tertiary : rgb(56, 211, 146);
+    --white    : rgb(255, 255, 255);
+    font-size  : 62.5%;
 }
 
-#center-box {
+body {
+    background : #ededed;
+    color: var(--primary);
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {
+    color: var(--secondary);
     display: flex;
+    justify-content: space-between;
+    margin: auto;
+    width: 85%;
+}
+
+#view-high-scores:hover {
+    cursor: pointer;
+    color: var(--tertiary);
+}
+
+header h4 {
+    padding-left: 20px;
+    font-size: 2rem;
+    display: inline;
+}
+
+.timer {
+    color: var(--primary);
+    /* display: inline; */
+    /* text-align: right; */
+    padding-right: 20px;
+}
+
+/* main content */
+/* all containers style is */
+.container {
+    padding: 20px;
     flex-direction: column;
+    width: 90%;
+    margin: auto;
+}
+
+h1 {
+    /* color: var(--primary); */
+    font-size: 3.0rem;
+    font-weight: bold;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+.start {
     align-items: center;
+    text-align: center;
+}
+
+.start p {
+    text-align: left;
+}
+
+.questions {
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 40px 20px;
+    margin: auto;
+}
+
+.end h1, .end p {
+    /* text-align: left; */
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+/* input form style in end container */
+.end input {
+    outline: thick;
+    border-width: 2px;
+    padding: 5px;
+    width: 35%;
+    font-size: 2.2rem;
+    border-radius: 10px;
+    margin: 0 20px;
+}
+
+/* then input form clicked to input info it will be */
+.end input:focus {
+    border: 2px solid var(--secondary);
+}
+/*
+.show {
+    display: flex;
+}
+*/
+/* the elements with class hide will disapear from the page */
+.hide{
+    display: none;
 } 
+
+#question {
+    text-align: left;
+    font-size: 3.0rem;
+    font-weight: bold;
+}
+
+/* Button styling */
+.btn {
+    background: var(--secondary);
+    color: var(--white);
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 3px grey;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background: var(--tertiary);
+    /* box-shadow: 0 2px grey; */
+}
+
+.btn:active {
+    box-shadow: 0 0;
+}
+
+/* answers buttons */
+.btn-grid {
+    display: grid;
+    grid-template-rows: repeat(4,auto);
+    grid-gap: 5px;
+    margin: 20px 0;
+}
+
+.start-end {
+    width: 25%;
+    margin-top: 0;
+}
+
+.answer-btn {
+    width: 50%;
+    text-align: left;
+    font-size: 3.2vmin;
+}
+
+/* correct/wrong styling */
+
+#correct,
+#wrong {
+    font-size : 25px;
+    text-align: center;
+    color     : rgba(199, 187, 187, 0.8);
+    font-style: italic;
+    margin    : 0 100px;
+}
+
+#correct h2,
+#wrong h2 {
+    border-top : 2px solid rgba(199, 187, 187, 0.8);
+    margin     : 0 auto;
+    text-align : center;
+    padding-top: 5px;
+}
+
+
+
+/* List for High Scores */
+
+ol {
+    list-style-type: number;
+}
+
+li:nth-child(odd) {
+    background: rgba(228, 151, 164, 0.5);
+}
+
+li {
+    font-size: 4.0vw;
+}
+
+/* media query for smaller screens */
+
+@media screen and (max-width: 1720px) {
+
+    .btn {
+        width    : 100%;
+        font-size: 3.0vw;
+    }
+
+    #question {
+        font-size: 4.5vw;
+    }
+
+    h1 {
+        font-size: 4.5vw;
+    }
+
+    p {
+        font-size: 3.0vw;
+    }
+
+}
