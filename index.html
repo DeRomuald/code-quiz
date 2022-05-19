@@ -4,28 +4,24 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <!-- name in the tab -->
         <title>Code Quiz</title>
-        <!-- connect style css sheet -->
         <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
-        <!-- head with view high score link and time -->
         <header>
-            <!-- high score -->
+            <!-- high scores -->
             <h4 id="view-high-scores">View High Scores</h4>
             <!-- timer -->
             <h4 class="timer">Time: <span id="timer"></span></h4>
         </header>
     
-        <!-- first message you see with a button to start the quiz -->
+        <!-- Quiz Instructions -->
         <div id="starter-container">
-            <!-- assigning two classes in one place like container and start classes for this div -->
             <div class="container start">
                 <h1>Coding Quiz Challenge</h1>
                 <p>Try to answer the following code-related questions within the time limit. Correct answers are worth 7
-                    points!<br /><br /> <!-- 2 new lines for the info text -->
+                    points!<br /><br /> 
                 Keep in mind that incorrect answers will penalize your score by 2 points and your time by 3 seconds!
             </p>
             <button class="btn start-end" id="start-game">Start Quiz</button>
@@ -33,7 +29,7 @@
     </div>
 
 
-<!-- second box with question and answers button -->
+<!-- Question and Answer buttons -->
         <div id="question-container" class="hide">
             <div class="container questions">
                 <div id="question"></div>
@@ -53,12 +49,7 @@
                 <button class="btn start-end" id="submit-score" type="submit">Submit</button> </p>
               </form>
             </div>
-            <form id="initials-form" class="initials">
-                <p> Enter Initials:
-                    <input type="text" name="initials" id="initials" class="text-input" />
-                    <button class="btn start-end" id="sumbit-score" type="submit">Submit</button>
-                </p>
-            </form>
+       
         </div>
     </div>
 <!-- high score box with a list of all data from local storage -->
@@ -73,15 +64,14 @@
         </div>
     </div>
 
-<!-- reaction on correct or wrong answer -->
+<!-- Reaction to answers -->
     <div class="hide" id="correct">
-        <h2>Correct :)!</h2>
+        <h2>Correct 👍🏾 !</h2>
     </div>
     <div class="hide" id="wrong">
-        <h2>Wrong :( </h2>
+        <h2>Wrong 👎🏾 </h2>
     </div>
 
-<!-- link script file to the html -->
     <script src="script.js"></script> 
 </body>
 </html>

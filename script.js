@@ -230,7 +230,7 @@ var answerCheck = function (event) {
     else {
         gameOver = true;
         showScore();
-        console.log("im from answerCheck()");
+        
     }
 };
 
@@ -254,11 +254,11 @@ var displayAnswers = function () {
         answerButton.classList.add('btn');
         answerButton.classList.add('answer-btn');
         answerButton.textContent = questions[questionIndex].choices[i].choice;
-        // need to check answer here function.
+       
         answerButton.addEventListener('click', answerCheck);
         answerButtonsEl.appendChild(answerButton);
     }
-    console.log(questions[questionIndex].a); //log right answer
+    
 };
 
 // to display score;
@@ -343,43 +343,7 @@ var answerWrong = () => {
         correctAnswerEl.classList.add("hide");
     }
 };
-// User Story
-// AS A coding boot camp student
-// I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-// SO THAT I can gauge my progress compared to my peers
-// Acceptance Criteria
-// GIVEN I am taking a code quiz
-// WHEN I click the start button
-// THEN a timer starts and I am presented with a question
-// WHEN I answer a question
-// THEN I am presented with another question
-// WHEN I answer a question incorrectly
-// THEN time is subtracted from the clock
-// WHEN all questions are answered or the timer reaches 0
-// THEN the game is over
-// WHEN the game is over
-// THEN I can save my initials and score
-// When I click the start button, timer starts
-// need to setTime function and setQuestion()
-// Display questions information  including answer buttons
-// need to add answerCheck() function
-// need to create showScore() function
-// Then I am presented with a question and choices
-//after I answer a question, show if correct or wrong
-// // correct answer, add 1 score to final score
-// // wrong answer, deduct 10 second from timer
-// Repeat with the rest of questions
-// // if no more questions, run game over function
-// When all questions are answered or timer reaches 0, game over
-// // Show final score
-// Enter initial and store high score in local storage
-// // Stop function if initial is blank
-// Store scores into local storage
-// Show current high scores
-// Function to show high scores
-// // check if there is any local storage
-// SCORES
-//save high score()
+
 // Stringify array in order to store in local
 var saveHighScore = function () {
     localStorage.setItem("highScores", JSON.stringify(highScores));
