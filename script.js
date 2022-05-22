@@ -111,45 +111,44 @@ var questions = [
         ]
     },
 ];
-// Grab reference to element
+
 
 
 // header elements - view high scores and timer
 var viewHighScoresEl = document.getElementById("view-high-scores");
 var timerEl = document.getElementById("timer");
 
-// first container we see when open the page
+// first container when page is opened
 var starterContainerEl = document.getElementById("starter-container");
 
-// this is question container. contains answers as well.
+// question container with answers
 var questionContainerEl = document.getElementById("question-container");
 var questionEl = document.getElementById("question");
 var answerButtonsEl = document.getElementById("answer-buttons");
 
-// this is the end of the quiz container with banner and initials input and submit button
+// end of quiz container with scores and intials
 var endContainerEl = document.getElementById("end-container");
 var scoreBannerEl = document.getElementById("score-banner");
 var initialsFormEl = document.getElementById("initials-form");
-// +one button with submit in the buttons section
+
 
 // high score container
 var highScoreContainerEl = document.getElementById("high-score-container");
 var highScoreListEl = document.getElementById("high-score-list");
 // +two more buttons look in the buttons section
 
-// correct/wrong answers containers
+// correct/incorrect answers container
 var correctAnswerEl = document.getElementById("correct");
 var wrongAnswerEl = document.getElementById("wrong");
 
 // Buttons
 var buttonStartGameEl = document.getElementById("start-game");
-// var buttonSubmitScoreEl = document.getElementById("submit-score");
 var buttonGoBackEl = document.getElementById("go-back");
 var buttonClearHighScoreEl = document.getElementById("clear-high-scores");
 
-// High Score Array
+// high Score Array
 var highScores = [];
-// assign array details for questions
+
 var shuffledQuestions;
 var questionIndex = 0;
 var score = 0;
@@ -170,12 +169,12 @@ var cleanScreen = function () {
     wrongAnswerEl.className = 'hide';
 };
 
-// choose a random index from an array.length/it needs an array as an argument
+
 var randomIndexOfArray = function (array) {
     return Math.floor(Math.random() * array.length);
 };
 
-// every second, check if game-over is true, or if there is time left. Start time at questions.length * 6 6 second on a question.
+// timer function
 var setTime = function () {
     timeLeft = questions.length * 6; // every question has 6 sec to chose the answer.
    
@@ -207,23 +206,23 @@ var restartGame = function () {
 //   WHEN I click the start button - I am presented with a question
 var startGame = function () {
     cleanScreen();
-    questionContainerEl.classList.remove("hide"); //show content
+    questionContainerEl.classList.remove("hide"); 
     setTime();
     setQuestion();
 };
 var answerCheck = function (event) {
     var selectedAnswer = event.target.textContent;
-    if (questions[questionIndex].a === selectedAnswer) {    // if answer correct do next
+    if (questions[questionIndex].a === selectedAnswer) {    
         answerCorrect();
         score += 10;
     }
-    else {      // or if answer wrong do next
+    else {      
         answerWrong();
-        score -= 5;      // remove 5 points from Griffindor
-        timeLeft -= 10;  // remove secs
+        score -= 5;      
+        timeLeft -= 10;  
     }
-    // go to the next question, if we have more questions in array questions
-    if (questionIndex + 1 < questions.length) { //don't run if just question cause error in start game with index. TRY WHEN GAME OVER SET
+    
+    if (questionIndex + 1 < questions.length) { 
         questionIndex++;
         setQuestion();
     }
@@ -239,7 +238,7 @@ var setQuestion = function () {
     displayAnswers(questions[questionIndex]);
 };
 
-// while we still have some answers in answers container remove first and go for next one which become first if not it stops.
+
 var resetAnswers = function () {
     while (answerButtonsEl.firstChild) {
         answerButtonsEl.removeChild(answerButtonsEl.firstChild);
@@ -248,8 +247,8 @@ var resetAnswers = function () {
 
 //display question information (including answer buttons)
 var displayAnswers = function () {
-    questionEl.textContent = questions[questionIndex].q; // display question
-    for (var i = 0; i < questions[questionIndex].choices.length; i++) { // to display answers:
+    questionEl.textContent = questions[questionIndex].q; 
+    for (var i = 0; i < questions[questionIndex].choices.length; i++) {
         var answerButton = document.createElement("button");
         answerButton.classList.add('btn');
         answerButton.classList.add('answer-btn');
@@ -261,7 +260,7 @@ var displayAnswers = function () {
     
 };
 
-// to display score;
+// score display
 var showScore = function () {
     cleanScreen();
     endContainerEl.classList.remove("hide");
@@ -275,7 +274,7 @@ var showScore = function () {
 var sortedArray = function (a, b) {
     return (b.score - a.score);
 };
-// create high score values
+//  high score values
 var createHighScore = function (event) {
     event.preventDefault();
     var initials = document.getElementById("initials").value;
@@ -283,25 +282,24 @@ var createHighScore = function (event) {
         alert("Enter your initials!");
         return;
     }
-    // clean the form
+
     initialsFormEl.reset();
-    //creat an object with initials and score keys and values
+ 
     var initialScore = {
         initials: initials,
         score: score
     }
-    // push and sort scores
+   
     highScores.push(initialScore);
     highScores.sort(sortedArray);
     
 
-    // clear visible list to resort
+  
     while (highScoreListEl.firstChild) {
         highScoreListEl.removeChild(highScoreListEl.firstChild);
     }
     
 
-     // create elements in order of high scores
      for (var i = 0; i < highScores.length; i++) {
         var highScoreEl = document.createElement('li');
         highScoreEl.className = 'high-score';
@@ -312,15 +310,15 @@ var createHighScore = function (event) {
     
 
     saveHighScore();
-    // debugger;
-    displayHighScores(); // need a function
+   
+    displayHighScores(); 
     
 
 };
 
 var displayHighScores = function () {
     cleanScreen();
-    highScoreContainerEl.classList.remove("hide");  // highsc already has ol with initials and score
+    highScoreContainerEl.classList.remove("hide");  
     gameOver = true;
 };
 var clearHighScores = function () {
@@ -330,9 +328,9 @@ var clearHighScores = function () {
     }
     localStorage.clear(highScores);
 }
-// show a bar with correct and hide wrong if any.
+
 var answerCorrect = () => {
-    if (correctAnswerEl.className === "hide") { // if hide already in class properties wont change anything. it wont be class="hide hide" because of = sign. it removes old assignments and rewrites it to be that provided.
+    if (correctAnswerEl.className === "hide") {
         correctAnswerEl.classList.remove("hide");
         wrongAnswerEl.classList.add("hide");
     }
@@ -344,11 +342,11 @@ var answerWrong = () => {
     }
 };
 
-// Stringify array in order to store in local
+// local storage
 var saveHighScore = function () {
     localStorage.setItem("highScores", JSON.stringify(highScores));
 };
-// load values/ called on page load
+
 var loadHighScore = function () {
     var loadedHighScores = localStorage.getItem("highScores");
     if (!loadedHighScores) {
