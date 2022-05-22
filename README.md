@@ -33,5 +33,8 @@ This code quiz was created to resemble the mockup (see acknowledgements) and con
 ## Screeshots
 
 ## Link
+ https://deromuald.github.io/code-quiz/
 
 ## Acknowledgements
+### this challenge was inspired by the UM bootcamp.
+#### Mockup
